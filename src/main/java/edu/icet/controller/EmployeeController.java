@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/employee")
 @RequiredArgsConstructor
@@ -26,7 +26,7 @@ public class EmployeeController {
         return ResponseEntity.ok(service.createEmployee(emmployee));
     }
 
-    @GetMapping("/update")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody  Employee employee){
         return ResponseEntity.ok(service.updateEmployee(id, employee));
     }
